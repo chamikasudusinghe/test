@@ -7,14 +7,14 @@ then
   python3 dump_npz.py > dump_npz.log 2> dump_npz.err
 fi
 
-for dataset in cora citeseer pubmed ppi arxiv proteins reddit
+for dataset in cora
 do
   # sparsetir & dgl
   echo "Running SparseTIR SpMM w/ hybrid format on ${dataset}"
   python3 bench_spmm_hyb.py -d ${dataset} -i > sparsetir_${dataset}_hyb.log 2> sparsetir_${dataset}_hyb.err
   echo "Running SparseTIR SpMM w/o hybrid format on ${dataset}"
   python3 bench_spmm_naive.py -d ${dataset} > sparsetir_${dataset}_naive.log 2> sparsetir_${dataset}_naive.err
-  for feat_size in 32 64 128 256 512
+  for feat_size in 32 64
   do
     # dgsparse
     echo "Running dgsparse SpMM on ${dataset}, feat_size = ${feat_size}"
