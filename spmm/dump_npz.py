@@ -4,8 +4,8 @@ import numpy as np
 import os
 from utils import get_dataset
 
-if not os.path.exists("data"):
-    os.mkdir("data")
+if not os.path.exists("../data"):
+    os.mkdir("../data")
 
 for dataset_name in ["cora", "citeseer", "arxiv", "pubmed", "ppi", "reddit", "proteins"]:
     print("dumping dataset {}".format(dataset_name))
